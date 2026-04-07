@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Password Redirect</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <h1>Enter password</h1>
+      <form id="pwForm">
+        <input id="pw" type="password" placeholder="Password" required autocomplete="off" />
+        <button type="submit">Go</button>
+      </form>
+      </main>
+
+    <script>
+      document.getElementById('pwForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const v = document.getElementById('pw').value.trim();
+        if (!v) return;
+        const target = encodeURIComponent(v) + '.html';
+        window.location.href = target;
+      });
+    </script>
+  </body>
+</html>
